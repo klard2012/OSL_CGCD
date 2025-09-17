@@ -27,29 +27,14 @@ python -m pip install osl_cgcd-0.1.1-py3-none-any.whl
 Crea un script y utiliza los módulos incluidos:
 
 ```python
-from OSL_CGCD import modulo1, modulo2
+from OSL_CGCD import modulo
 # Ejemplo de uso: ejecutar funciones de análisis
 ```
 
 ## Estructura del paquete
 
-- `modulo1.py`: Deconvolución de curvas OSL a partir de archivos Excel. Permite seleccionar el archivo a procesar y guarda los resultados en la carpeta `deconvolution_results`.
-- `modulo2.py`: Combina los resultados de varias columnas en un solo archivo continuo para análisis posterior.
-- `run_all.py`: Automatiza la ejecución de los módulos 1 y 2 en orden.
+- `modulo1.py`: Deconvolución de curvas OSL a partir de archivos Excel. Permite seleccionar el archivo a procesar y guarda los resultados en la carpeta `deconvolution_results`. Combina los resultados de varias columnas en un solo archivo continuo para análisis posterior.
 
-## Ejemplo de ejecución
-1. Ejecuta `modulo1.py` para procesar tu archivo Excel:
-	```bash
-	python src/OSL_CGCD/modulo1.py
-	```
-2. Ejecuta `modulo2.py` para combinar los resultados:
-	```bash
-	python src/OSL_CGCD/modulo2.py
-	```
-3. O ejecuta todo automáticamente:
-	```bash
-	python src/OSL_CGCD/run_all.py
-	```
 
 ## Publicación en PyPI
 Para publicar una nueva versión:
