@@ -1,4 +1,3 @@
-# Deconvolution with FOK-CW for multiple columns
 from scipy import optimize
 import numpy as np
 import matplotlib.pyplot as plt
@@ -10,9 +9,9 @@ import os
 # Suppress warnings
 warnings.filterwarnings("ignore")
 
-# Solicitar el nombre del archivo al usuario
-filename = input("Ingrese el nombre del archivo .xlsx a procesar: ")
-df = pd.read_excel(filename, decimal=',')  # Usar coma como decimal
+# user input for filename
+filename = input("Enter the name of the .xlsx file to process: ")
+df = pd.read_excel(filename, decimal=',')  # Use comma as decimal
 
 # Convert to numpy array ensuring numeric values
 data = df.apply(pd.to_numeric, errors='coerce').values
@@ -43,7 +42,9 @@ inis = [0.5, 0.3, 0.2, 5, 20, 100, 0.01]  # 3 amplitudes + 3 tiempos + fondo
 
 
 # Process each column from 1 to 4
-for colum in range(1, 5):
+num_columns = data.shape[1]
+# Process each data column except the first (time)
+for colum in range(1, num_columns):
     print(f"\n{'='*50}")
     print(f"PROCESANDO COLUMNA {colum}")
     print(f"{'='*50}")
@@ -107,10 +108,10 @@ for colum in range(1, 5):
 
 # Crear un solo archivo con todos los datos en formato continuo
 header = "Tiempo[s]"
-all_columns_data = [x_data]  # Empezar con la columna de tiempo
+all_columns_data = [x_data]  # Start with the time column
 
-# Preparar encabezado y datos en el orden específico
-for colum in range(1, 5):
+# Prepare header and data in the specific order
+for colum in range(1, num_columns):
     try:
         # Get y_data for current column
         y_data = np.array(data[0:1000, colum], dtype=float)
@@ -150,9 +151,9 @@ print(f"Archivo '{output_file}' creado exitosamente")
 
 
 # Mostrar estructura del archivo
-print(f"\nESTRUCTURA DEL ARCHIVO:")
-print("1 columna: Tiempo[s]")
-for i in range(1, 5):
-    print(f"5 columnas para Columna {i}: Comp1, Comp2, Comp3, Fit, Muestra")
-print(f"TOTAL: {1 + 5*4} = 21 columnas")
+print(f"\nFILE STRUCTURE:")
+print("1 column: Time[s]")
+for i in range(1, num_columns):
+    print(f"5 columns for Column {i}: Comp1, Comp2, Comp3, Fit, Sample")
+print(f"TOTAL: {1 + 5*(num_columns-1)} columns")
     

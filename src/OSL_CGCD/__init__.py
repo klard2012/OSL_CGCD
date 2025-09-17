@@ -1,7 +1,6 @@
 # OSL_CGCD package initialization
 
-__version__ = "0.1.1"
+__version__ = "0.1.5"
 
-# Puedes importar aquí los módulos principales si lo deseas
-# from . import modulo1
-# from . import modulo2
+# You can import the main module here if desired
+from . import modulo
