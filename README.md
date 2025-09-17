@@ -29,11 +29,16 @@ Create a script and use the included module:
 
 ```python
 from OSL_CGCD import modulo
+<<<<<<< HEAD
 # Example: run analysis functions
+=======
+# Ejemplo de uso: ejecutar funciones de análisis
+>>>>>>> 5882aa6f15235a4163d5a83757f74e2cb5de888b
 ```
 
 ## Package Structure
 
+<<<<<<< HEAD
 - `modulo.py`: Deconvolution of OSL curves from Excel files. Allows you to select the file to process and saves results in the `deconvolution_results` folder. Combines results from several columns into a single continuous file for further analysis.
 
 ## Example Execution
@@ -41,6 +46,10 @@ from OSL_CGCD import modulo
 	```bash
 	python src/OSL_CGCD/modulo.py
 	```
+=======
+- `modulo1.py`: Deconvolución de curvas OSL a partir de archivos Excel. Permite seleccionar el archivo a procesar y guarda los resultados en la carpeta `deconvolution_results`. Combina los resultados de varias columnas en un solo archivo continuo para análisis posterior.
+
+>>>>>>> 5882aa6f15235a4163d5a83757f74e2cb5de888b
 
 ## Publishing to PyPI
 To publish a new version:
